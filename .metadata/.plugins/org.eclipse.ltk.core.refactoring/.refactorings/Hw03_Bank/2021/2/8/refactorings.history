@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename local variable &apos;accountNo&apos; in &apos;BankMain.main(...)&apos; to &apos;accountNo2&apos;&#x0D;&#x0A;- Original project: &apos;Hw03_Bank&apos;&#x0D;&#x0A;- Original element: &apos;BankMain.main(String[]).accountNo&apos;&#x0D;&#x0A;- Renamed element: &apos;accountNo&apos;&#x0D;&#x0A;- Update references to refactored element" description="Rename local variable &apos;accountNo&apos;" id="org.eclipse.jdt.ui.rename.local.variable" input="/src&lt;{BankMain.java[BankMain~main~\[QString;@accountNo!170!194!185!193!QString;!8388610!false" name="accountNo2" references="true" stamp="1613464178735" version="1.0"/>
+</session>

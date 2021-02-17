@@ -1,0 +1,114 @@
+
+interface Loanable{ 
+}
+
+//class AinLoan implements Loanable{
+//    
+//    int loanable_money = 300; //## 임시 ##
+//    
+//}
+
+class Bank{
+    int money;
+    int property = 2000;
+   
+    Bank(int money) {
+        this.money = money;
+    }
+    
+    void withDraw(int money) {
+        this.money -= money;
+    }
+    
+    void deposit(int money) {
+        this.money += money;
+    }
+}
+
+class KHBank extends Bank{
+    
+    KHBank(int money) {
+        super(money);
+    }
+
+    @Override
+    public String toString() {
+        return "KH은행";
+    }
+     
+}
+
+class YHBank extends Bank implements Loanable{
+
+    int loanable_money = 300; //## 임시 ##
+    
+    YHBank(int money) {
+        super(money);
+    }
+    
+    @Override
+    public String toString() {
+        return "YH은행";
+    }
+}
+
+class JHBank extends Bank implements Loanable{
+
+    int loanable_money = 300; //## 임시 ##
+    
+    JHBank(int money) {
+        super(money);
+    }
+    
+    @Override
+    public String toString() {
+        return "JH은행";
+    }
+}
+
+class User{
+    int money = 5000;
+    
+    void bankWithDraw(Bank bank, int money) {
+        bank.money -= money;
+        this.money += money;
+        System.out.println(bank.toString()+"에"+money+"만원 출금하셨습니다.");
+        System.out.println(bank.toString()+"의 고객님 잔액: "+bank.money+"\n");
+    }
+    
+    void bankDeposit(Bank bank, int money) {
+        bank.money += money;
+        this.money -= money;
+        System.out.println(bank.toString()+"에"+money+"만원 입금하셨습니다.");
+        System.out.println(bank.toString()+"의 고객님 잔액: "+bank.money+"\n");
+    }
+    
+    void loan(Loanable loan, int money) {
+        Bank bank = (Bank)loan;
+        bank.property -= money;
+        System.out.println(bank.toString()+"에서"+money+"만원 대출하셨습니다."+"\n");
+        System.out.println("고객님, "+bank.toString()+"에서"+bank.property+"만원 더 대출 가능합니다!"+"\n");
+        this.money += money;
+    }
+}
+
+public class HW_Diagram {
+    public static void main(String[] args) {
+        User user = new User();
+        KHBank khbank = new KHBank(1000);
+        YHBank yhbank = new YHBank(500);
+        JHBank jhbank = new JHBank(300);
+        
+       
+        user.bankDeposit(khbank, 300);
+        
+        user.bankWithDraw(yhbank, 200);
+        
+        System.out.println("내가 갖고있는 돈: "+user.money);
+        
+        
+        user.loan(jhbank, 500);
+        System.out.println("내가 갖고있는 돈: "+user.money);
+    }
+
+}

@@ -1,0 +1,10 @@
+package Bank;
+
+public class Account {
+    
+    private String accountNo;
+    private String name;
+    private long balance;
+    private Transaction[] transaction;
+
+}

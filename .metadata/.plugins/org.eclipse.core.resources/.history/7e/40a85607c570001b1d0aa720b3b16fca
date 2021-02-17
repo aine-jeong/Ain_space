@@ -1,0 +1,21 @@
+package kr.or.bit.utils;
+
+import java.util.Calendar;
+
+//날짜의 형식을 제공하는 설계도
+//어떠한 기능이 자주 사용된다면, new를 사용하지 않도록 static함수로 만들어주자. 
+// ㄴ>> 하나의 이름으로 -> 오버로딩
+
+public class Edu_Date {
+    public static String DateString(Calendar date) {
+        return date.get(Calendar.YEAR) + "년" +
+               (date.get(Calendar.MONTH)+1) + "월" +
+               date.get(Calendar.DATE) + "일";
+    }
+    
+    public static String DateString(Calendar date, String opr) {
+        return date.get(Calendar.YEAR) + opr +
+               (date.get(Calendar.MONTH)+1) + opr +
+               date.get(Calendar.DATE) + opr;
+    }
+}

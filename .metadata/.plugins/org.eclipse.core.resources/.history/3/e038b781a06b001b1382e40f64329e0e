@@ -1,0 +1,151 @@
+
+interface Loanable{ 
+}
+
+class AinLoan implements Loanable{ //## 임시 ##
+    
+    int loanable_money = 3000; 
+    int Interest(int money) {
+        return (int)(money/20.0);
+    }
+}
+
+class Bank{ // ## 추상메소드 사용할줄 모름!!
+    int money;
+    int property = 2000;
+   
+    Bank(int money) {
+        this.money = money;
+    }
+    
+    void Info(Bank bank) {
+        System.out.println(bank.toString()+"은행의 잔액: "+bank.money);
+    }   
+}
+
+class KHBank extends Bank{
+    
+    KHBank(int money) {
+        super(money);
+    }
+
+    @Override
+    public String toString() {
+        return "KH은행";
+    }
+    
+    @Override
+    void Info(Bank bank) {
+        System.out.println(bank.toString()+"은행의 잔액: "+bank.money);
+    }
+}
+
+class YHBank extends Bank implements Loanable{
+
+    int loanable_money = 300; //## 임시 ##
+    
+    YHBank(int money) {
+        super(money);
+    }
+    
+    @Override
+    public String toString() {
+        return "YH은행";
+    }
+
+//    @Override
+//    public void property() {
+//        // TODO Auto-generated method stub
+//        
+//    }
+}
+
+class JHBank extends Bank implements Loanable{
+
+    int loanable_money = 300; //## 임시 ##
+    
+    JHBank(int money) {
+        super(money);
+    }
+    
+    @Override
+    public String toString() {
+        return "JH은행";
+    }
+}
+
+class User{
+    int money = 5000;
+    
+    void bankWithDraw(Bank bank, int money) {
+        bank.money -= money;
+        this.money += money;
+        System.out.println(bank.toString()+"에"+money+"만원 출금하셨습니다.");
+        System.out.println(bank.toString()+"의 고객님 잔액: "+bank.money+"\n");
+    }
+    
+    void bankDeposit(Bank bank, int money) {
+        bank.money += money;
+        this.money -= money;
+        System.out.println(bank.toString()+"에"+money+"만원 입금하셨습니다.");
+        System.out.println(bank.toString()+"의 고객님 잔액: "+bank.money+"\n");
+    }
+    
+    void loan(Loanable loan, int money) {
+        
+        if (loan instanceof Bank) {
+            Bank bank = (Bank)loan;
+            bank.property -= money;
+            System.out.println(bank.toString()+"에서"+money+"만원 대출하셨습니다."+"\n");
+            System.out.println("고객님, "+bank.toString()+"에서"+bank.property+"만원 더 대출 가능합니다!"+"\n");
+            this.money += money;
+        } else {
+            AinLoan ainloan = (AinLoan)loan;
+            ainloan.loanable_money -= money;
+            int Interest = ainloan.Interest(money);
+            System.out.println("Ainloan 고객님 환영합니다 ^^");
+            System.out.println(money+"만원 대출신청 승인되셨습니다.");
+            System.out.println();
+        }
+    }
+    
+//        if(repairunit instanceof Unit2) { // 부모타입이 Unit2인 경우
+//            // 만약에 Tank2가 들어오면 > 너 Unit2 타입이니? 하고 물어본다
+//    Unit2 unit = (Unit2)repairunit; //unit >> Tank2, Marine
+//    // Tank2에서 부모타입인 Unit2 자원만 접근
+//    
+//    // ****** 부모타입의 주소를 자식이 가지려면 자식타입으로 캐스팅해야한다. *******
+//    if(unit.hitpoint != unit.MAX_HP) {
+//    unit.hitpoint = unit.MAX_HP;
+//    }
+//    }else {//부모타입이 Unit2가 아닌 경우
+//    System.out.println("Unit2 타입이 아니예요.. 다른 충전방식을 통해서 충전해보아요");
+//    }
+    
+    
+}
+
+public class HW_Diagram {
+    public static void main(String[] args) {
+        User user = new User();
+        KHBank khbank = new KHBank(1000);
+        YHBank yhbank = new YHBank(500);
+        JHBank jhbank = new JHBank(300);
+        
+       
+        user.bankDeposit(khbank, 300);
+        
+        user.bankWithDraw(yhbank, 200);
+        
+        System.out.println("내가 갖고있는 돈: "+user.money);
+        
+        
+        user.loan(jhbank, 500);
+        System.out.println("내가 갖고있는 돈: "+user.money);
+        
+        user.toString();
+        
+        
+    }
+
+}

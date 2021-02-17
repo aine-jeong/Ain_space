@@ -1,0 +1,24 @@
+import java.util.ArrayList;
+
+import Bank.Account;
+import Bank.Transaction;
+
+public class BankMain {
+    public static void main(String[] args) {
+        
+        String accountNo2 = null;
+        String name = null;
+        long balance = 0;
+        
+        ArrayList<Account> account = new ArrayList<Account>();
+        account.add(new Account("1111", "홍길동"));
+        
+        Account a = new Account("1","김");
+        a.getAccountNo();
+        System.out.println(a.getAccountNo(););
+        
+        Account num = account.get(0);
+        System.out.println(num);
+        
+    }
+}

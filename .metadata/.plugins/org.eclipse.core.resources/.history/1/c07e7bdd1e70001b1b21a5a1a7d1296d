@@ -1,0 +1,64 @@
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Set;
+
+/*
+ ### 상황에 따라 알맞은 자료구조를 사용하는 것이 중요하다 ###
+ 
+ HashMap<K,V> : generic 지원 > 타입 강제 가능
+ 
+ HashMap<String, String>
+ HashMap<Integer, String>
+ HashMap<String, Emp> >> value에 여러개의 값을 가진다.
+ >> put("kim", new Emp()); // kim 의 여러가지 정보를 넣을 수가 있다.
+ 
+ */
+
+class Student{
+    int kor;
+    int math;
+    int eng;
+    String name;
+    
+    public Student(int kor, int math, int eng, String name) {
+        super();
+        this.kor = kor;
+        this.math = math;
+        this.eng = eng;
+        this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "Student [kor=" + kor + ", math=" + math + ", eng=" + eng + ", name=" + name + "]";
+    }
+    
+    
+}
+
+public class Ex14_HashMap {
+    public static void main(String[] args) {
+        // 선생님 학생마다 ID 부여
+        HashMap<String, Student> sts = new HashMap<String, Student>();
+        sts.put("hong", new Student(100, 99, 88, "홍길동"));
+        sts.put("kim", new Student(50, 40, 60, "김유신"));
+        // ... 이런식으로 반 학생 20명 관리
+        
+        Student std = sts.get("hong");
+        System.out.println(std);
+        
+        
+        // Tip 1
+        // Map -> key, value로 관리
+        // 두가지를 한번에 볼 수 있는 방법
+        // sts.entrySet(); >> [key + "=" + value]를 하나의 문자열로 만들어서 관리한다.
+        // 중복값이 없으니까 Set으로 관리한다
+        Set set = sts.entrySet();
+        Iterator it = set.iterator();
+        while(it.hasNext()) {
+            System.out.println(it.next());
+        }
+        
+        
+    }
+}

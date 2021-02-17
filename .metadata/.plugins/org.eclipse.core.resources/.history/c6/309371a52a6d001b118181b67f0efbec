@@ -1,0 +1,10 @@
+package MaineTest;
+import kr.or.bit.day0212_3_cinema;
+
+public class Testmain {
+    public static void main(String[] args) {
+       
+        
+        
+    }   
+}

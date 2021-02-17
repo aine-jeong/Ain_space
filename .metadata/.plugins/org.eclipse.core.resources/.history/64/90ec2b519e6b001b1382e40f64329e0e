@@ -1,0 +1,154 @@
+
+interface Loanable{ 
+//    void property();
+}
+
+//class AinLoan implements Loanable{ //## 임시 ##
+//    int loanable_money = 300; 
+//}
+
+class Bank{ // ## 추상메소드 사용할줄 모름!!
+    int money;
+    int property = 2000;
+   
+    Bank(int money) {
+        this.money = money;
+    }
+    
+    void Info(Bank bank) {
+        System.out.println(bank.toString()+"은행의 잔액: "+bank.money);
+    }
+    
+//    static void findAccount(String custld) { // ## 해결 못함!
+//        System.out.println("**금융개정법안 00이후 고객의 휴면계좌 찾아주기 운동**");
+//        System.out.println("**금융 결제원에서 제공하는 로직**");
+//    }
+    
+    void BCAuth(String bankName) {
+        System.out.println(bankName+"에서 블록체인 인증을 요청합니다");
+        System.out.println("전 금융사 공통 블록체인 로직 수행");
+    }
+    
+   
+    
+}
+
+class KHBank extends Bank{
+    
+    KHBank(int money) {
+        super(money);
+    }
+
+    @Override
+    public String toString() {
+        return "KH은행";
+    }
+    
+    @Override
+    void Info(Bank bank) {
+        System.out.println(bank.toString()+"은행의 잔액: "+bank.money);
+    }
+    
+   
+    
+//    @Override
+//    static void findAccount(String name) { // 근데 이걸 아무것도 손대질 않았는데 굳이 써야되는 이유는 ..?
+//        System.out.println("**금융개정법안 00이후 고객의 휴면계좌 찾아주기 운동**");
+//        System.out.println("**금융 결제원에서 제공하는 로직**");
+//    }
+    
+    
+    void BCAuth(Bank bank) {
+        System.out.println(bank.toString()+"에서 블록체인 인증을 요청합니다");
+        System.out.println("전 금융사 공통 블록체인 로직 수행");
+    }
+     
+}
+
+class YHBank extends Bank implements Loanable{
+
+    int loanable_money = 300; //## 임시 ##
+    
+    YHBank(int money) {
+        super(money);
+    }
+    
+    @Override
+    public String toString() {
+        return "YH은행";
+    }
+
+//    @Override
+//    public void property() {
+//        // TODO Auto-generated method stub
+//        
+//    }
+}
+
+class JHBank extends Bank implements Loanable{
+
+    int loanable_money = 300; //## 임시 ##
+    
+    JHBank(int money) {
+        super(money);
+    }
+    
+    @Override
+    public String toString() {
+        return "JH은행";
+    }
+}
+
+class User{
+    int money = 5000;
+    
+    void bankWithDraw(Bank bank, int money) {
+        bank.money -= money;
+        this.money += money;
+        System.out.println(bank.toString()+"에"+money+"만원 출금하셨습니다.");
+        System.out.println(bank.toString()+"의 고객님 잔액: "+bank.money+"\n");
+    }
+    
+    void bankDeposit(Bank bank, int money) {
+        bank.money += money;
+        this.money -= money;
+        System.out.println(bank.toString()+"에"+money+"만원 입금하셨습니다.");
+        System.out.println(bank.toString()+"의 고객님 잔액: "+bank.money+"\n");
+    }
+    
+    void loan(Loanable loan, int money) {
+        Bank bank = (Bank)loan;
+        bank.property -= money;
+        System.out.println(bank.toString()+"에서"+money+"만원 대출하셨습니다."+"\n");
+        System.out.println("고객님, "+bank.toString()+"에서"+bank.property+"만원 더 대출 가능합니다!"+"\n");
+        this.money += money;
+    }
+    
+    
+}
+
+public class HW_Diagram {
+    public static void main(String[] args) {
+        User user = new User();
+        KHBank khbank = new KHBank(1000);
+        YHBank yhbank = new YHBank(500);
+        JHBank jhbank = new JHBank(300);
+        
+       
+        user.bankDeposit(khbank, 300);
+        
+        user.bankWithDraw(yhbank, 200);
+        
+        System.out.println("내가 갖고있는 돈: "+user.money);
+        
+        
+        user.loan(jhbank, 500);
+        System.out.println("내가 갖고있는 돈: "+user.money);
+        
+        user.toString();
+        
+        
+        khbank.BCAuth(khbank);
+    }
+
+}

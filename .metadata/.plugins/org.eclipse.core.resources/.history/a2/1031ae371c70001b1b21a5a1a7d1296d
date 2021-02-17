@@ -1,0 +1,51 @@
+import java.util.HashMap;
+
+/*
+ HashMap<K,V> : generic 지원 > 타입 강제 가능
+ 
+ HashMap<String, String>
+ HashMap<Integer, String>
+ HashMap<String, Emp> >> value에 여러개의 값을 가진다.
+ >> put("kim", new Emp()); // kim 의 여러가지 정보를 넣을 수가 있다.
+ 
+ */
+
+class Student{
+    int kor;
+    int math;
+    int eng;
+    String name;
+    
+    public Student(int kor, int math, int eng, String name) {
+        super();
+        this.kor = kor;
+        this.math = math;
+        this.eng = eng;
+        this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "Student [kor=" + kor + ", math=" + math + ", eng=" + eng + ", name=" + name + "]";
+    }
+    
+    
+}
+
+public class Ex14_HashMap {
+    public static void main(String[] args) {
+        // 선생님 학생마다 ID 부여
+        HashMap<String, Student> sts = new HashMap<String, Student>();
+        sts.put("hong", new Student(100, 99, 88, "홍길동"));
+        sts.put("kim", new Student(50, 40, 60, "김유신"));
+        // ... 이런식으로 반 학생 20명 관리
+        
+        Student std = sts.get("hong");
+        System.out.println(std);
+        
+        
+        
+        
+        
+    }
+}

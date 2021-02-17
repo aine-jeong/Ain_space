@@ -1,0 +1,68 @@
+
+interface Loanable{ 
+}
+
+class Bank{
+    int money;
+    
+    Bank(int money) {
+        this.money = money;
+    }
+    
+    void withDraw(int money) {
+        this.money -= money;
+    }
+    
+    void deposit(int money) {
+        this.money += money;
+    }
+}
+
+class KHBank extends Bank{
+
+    KHBank(int money) {
+        super(money);
+    }
+}
+
+class YHBank extends Bank implements Loanable{
+
+    YHBank(int money) {
+        super(money);
+    }
+}
+
+class JHBank extends Bank implements Loanable{
+
+    JHBank(int money) {
+        super(money);
+    }
+}
+
+class User{
+    int money = 5000;
+    
+    void bankUtil(Bank bank){
+        
+        
+    }
+    
+    void loan(Loanable loan) {
+       
+        if(loan instanceof Bank) { // 부모타입이 Bank라면,
+            Bank bank = (Bank)loan; //부모타입이 Bank 자원만 접근
+            
+            if(false) { // if 조건은 어떻게해 ??????????
+                bank.money += 0; // ## ....????? 여기다가 어떻게해야 대출가능...?
+            }
+        }else {//헤엑 ?????????? 부모타입이 뱅크가 아닌 .. 엥 ??????????
+            System.out.println("대출 가능한 은행이 아니랍니다.");
+        }
+}
+
+public static class HW_Diagram {
+    public static void main(String[] args) {
+        
+        
+    }
+}
