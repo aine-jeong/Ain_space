@@ -1,12 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="kr.or.bit.Book"/>
-    <fullyQualifiedTypeName name="Ex18_Book_Constructor"/>
-    <fullyQualifiedTypeName name="Socar"/>
-    <fullyQualifiedTypeName name="kr.or.bit.AirPlane"/>
-    <fullyQualifiedTypeName name="Zcar"/>
-    <fullyQualifiedTypeName name="Zcar2"/>
-    <fullyQualifiedTypeName name="kr.or.bit.MainBody"/>
     <fullyQualifiedTypeName name="kr.or.bit.Monitor"/>
     <fullyQualifiedTypeName name="Father"/>
     <fullyQualifiedTypeName name="java.lang.Override"/>
@@ -41,7 +34,6 @@
     <fullyQualifiedTypeName name="AinLoan"/>
     <fullyQualifiedTypeName name="KHBank"/>
     <fullyQualifiedTypeName name="Product001"/>
-    <fullyQualifiedTypeName name="java.util.Arrays"/>
     <fullyQualifiedTypeName name="practice.day0212_3_cinema"/>
     <fullyQualifiedTypeName name="java.util.Random"/>
     <fullyQualifiedTypeName name="java.util.Vector"/>
@@ -60,4 +52,12 @@
     <fullyQualifiedTypeName name="java.util.Date"/>
     <fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
     <fullyQualifiedTypeName name="Bank.Bank"/>
+    <fullyQualifiedTypeName name="kr.or.bit.utils.Edu_Date"/>
+    <fullyQualifiedTypeName name="java.util.Calendar"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="java.io.ByteArrayInputStream"/>
+    <fullyQualifiedTypeName name="java.io.ByteArrayOutputStream"/>
+    <fullyQualifiedTypeName name="java.util.Arrays"/>
+    <fullyQualifiedTypeName name="java.io.FileInputStream"/>
+    <fullyQualifiedTypeName name="java.io.FileOutputStream"/>
 </qualifiedTypeNameHistroy>

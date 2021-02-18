@@ -1,6 +1,5 @@
 class Pbase{
     int p = 100;
-    
 }
 
 class Cbase extends Pbase{
@@ -8,7 +7,6 @@ class Cbase extends Pbase{
 }
 
 class Dbase extends Pbase{
-    
 }
 
 public class Ex11_Inherit_poly {

@@ -98,7 +98,7 @@ class F implements Icallable{
 }
 
 // interface POINT >> 유연하게 >> 확장자 
-// 현대적인 프로그래밍은 >> 느슨한 관계를 좋아한다.
+// 현대적인 프로그래밍은 느슨한 관계를 좋아한다.
 class User{
     /*
     void method(D d) {

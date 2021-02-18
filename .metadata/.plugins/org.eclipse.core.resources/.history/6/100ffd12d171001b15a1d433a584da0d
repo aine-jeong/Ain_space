@@ -1,0 +1,52 @@
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.util.Set;
+import java.util.TreeSet;
+
+// hw01_conputer에있는 로또
+// Ex09_IO 참고해서 만들기
+
+public class Hw_Lotto_Read_Write {
+    public static void main(String[] args) throws Exception{
+        
+//        Lotto lotto = new Lotto();
+//        lotto.Write();
+//        lotto.Read();
+        
+        Set<Integer> lotto22;
+        String lottonum22;
+        
+        lotto22 = new TreeSet<Integer>();
+        for(int i = 0; lotto22.size() < 6 ; i++) {
+          lotto22.add((int)(Math.random()*45 + 1));
+        }
+        lottonum22 = lotto22.toString();
+        
+        System.out.println(lottonum22);
+        
+        FileWriter fw = null;
+        BufferedWriter bw = null;
+        
+    try {
+        fw = new FileWriter("C:\\Temp\\lotto.txt", true);
+        bw = new BufferedWriter(fw);
+        
+        bw.write("로또 번호: " + lottonum22); // 날짜 입력하기~~~~~
+        bw.newLine();
+        
+    } catch (Exception e) {
+        e.printStackTrace();
+    } finally {
+        try {
+            if(fw != null  && bw != null) {
+                bw.close();
+                fw.close();
+            
+            }
+        } catch (Exception e2) {
+            e2.printStackTrace();
+        }
+    }
+        
+    }
+}

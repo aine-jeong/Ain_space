@@ -1,0 +1,29 @@
+import java.io.BufferedInputStream;
+import java.io.FileInputStream;
+
+/*
+ # 성능을 생각해서 만들어보쟈 01~03 은 성능 고려 x #
+ File처리 중 Disk에 가록하는 작업이 가장 느린 작업이다
+ (왜? -> 원칙: 1 byte 단위로, read - write 한다)
+ ㄴ> read와 write를 한번에 모아서 하자!! 
+ (버스 대절해서 20명씩 묶어서 데려다주기 -> 요기서 버스가 버퍼!(=캐시메모리))
+ 
+ buffer 사용
+ 1. I/O의 횟수를 줄여서 성능을 개선한다.
+ 2. Line단위(엔터) 처리가 가능하다. -> 버퍼만 가능한 일!
+ 
+ 보조스트림 (혼자서는 못쓰이고 다른애랑 같이쓰이는 애)
+ 대표적으로 BufferedInputStream 이 있다! (독자적으로 사용되는 것이 아니라 주 클래스에 의존해서 쓰인다)
+ 
+ 개발자는 의무적으로 사용하면 된다. (성능이 좋아지는거니까~~~)
+ 
+ 
+ 
+ */
+public class Ex04_Stream_Buffer {
+    public static void main(String[] args) {
+        FileOutputStream fos = null;
+        BufferedOutputStream bos = null;
+        
+    }
+}

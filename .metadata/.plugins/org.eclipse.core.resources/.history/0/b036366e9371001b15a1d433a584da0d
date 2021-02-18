@@ -1,0 +1,18 @@
+/*
+ 문자 기반의 데이터 처리가 가능하도록(한글처리...) >> String Date를 처리하겠다 > char[] !!
+ 한글 1자, 영문자 1자 >> 2byte
+ 
+ Reader, Writer -> 문자처리
+ 
+ 대상: File 
+ 
+ */
+public class Ex05_Reader_Writer {
+    public static void main(String[] args) {
+        FileReader fr = null;
+        FileWriter fw = null;
+        
+        
+    }
+
+}

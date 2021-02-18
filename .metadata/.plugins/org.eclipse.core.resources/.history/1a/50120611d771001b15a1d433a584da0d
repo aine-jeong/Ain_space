@@ -1,0 +1,10 @@
+import java.io.File;
+
+public class Hw_Dos {
+    static String path = "C:\\Temp\\file.txt";
+    
+    static void renameDirectory(File dir) {
+        
+    }
+}
+
