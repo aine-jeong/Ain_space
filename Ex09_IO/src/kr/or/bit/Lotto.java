@@ -4,12 +4,15 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.text.SimpleDateFormat;
 import java.util.Set;
 import java.util.TreeSet;
 
 public class Lotto {
     private Set<Integer> lotto;
     private String lottonum;
+    
+    SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd HH-mma");
 
     public Lotto() {
         lotto = new TreeSet<Integer>();

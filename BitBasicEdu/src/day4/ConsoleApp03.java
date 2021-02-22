@@ -34,7 +34,7 @@ import java.util.Scanner;
 
 public class ConsoleApp03 {
 	/**
-	 * main 합수:
+	 * main 함수:
 	 *  -키보드 입력(요청), 화면 출력(응답)
 	 *  - 변수형: 문자열 (String)
 	 *  

@@ -1,3 +1,6 @@
 1613616388704	Copy compilation unit
 1613632586490	Rename package 'kr.or.bot'
 1613636438332	Rename local variable 'lottonum'
+1613664960541	Rename method 'searchDirectory'
+1613709240404	Move compilation unit
+1613711427821	Delete element

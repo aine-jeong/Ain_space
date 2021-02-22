@@ -1,10 +1,7 @@
 import java.io.File;
 
 public class Hw_Dos {
-//    static String path = "C:\\Temp\\Testing.txt";
     static boolean success;
-//    static String ex_file_name;
-//    static String new_file_name;
     static File exName;
     static File newName;
     
