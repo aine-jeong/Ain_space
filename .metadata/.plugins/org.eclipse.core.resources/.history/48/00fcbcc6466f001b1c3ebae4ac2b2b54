@@ -1,8 +1,0 @@
-
-public class Ex03_ArrayList_Object {
-    public static void main(String[] args) {
-        //사원 1명을 만드세요
-        Emp emp = new Emp(100, "김유신", "군인");
-        
-    }
-}
