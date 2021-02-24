@@ -12,7 +12,7 @@ public class Menu {
     static int userDateChoice;
     static int userTimeChoice;
     static String[] dateList = new String[5];
-//    String[][] date_Time_List = new String[5][4];
+//    String[][] date_Time_List = new String[5][4]; // 날짜-시간 배열 (<1타임> [9:00~11:00] -> <1타임> [예약완료]
 
     public User user = new User();
     public Login login = new Login();
@@ -95,12 +95,45 @@ public class Menu {
 
     }
 
-    void member_BookMenu() {
-
+    public void member_BookMenu() {
+        
         // 1. Member.booking
         // 2. Member.bookInfo
         // 3. Member.bookEdit
         // 4. Member.bookDel
+        
+        while (true) {
+            System.out.println("*****예약 관리*****");
+            System.out.println("<1> 예약하기");
+            System.out.println("<2> 예약목록 확인");
+            System.out.println("<3> 예약내역 변경");
+            System.out.println("<4> 예약 취소");
+            
+            System.out.print("원하는 메뉴 번호를 입력하세요>  ");
+            int userChoice = sc.nextInt();
+            sc.nextLine();
+
+            while (userChoice > 4 || userChoice < 1) {
+                System.out.println("메뉴 번호를 잘못 입력하셨습니다.");
+                System.out.print("다시 입력해주세요: ");
+                userChoice = sc.nextInt();
+            }
+
+            switch (userChoice) {
+            case 1:
+                member.booking();
+                break;
+            case 2:
+                member.bookingInfo();
+                break;
+            case 3:
+                member.bookingEdit();
+                break;
+            case 4:
+                member.bookingDel();
+                break;
+            }
+        }
 
     }
 
@@ -122,34 +155,21 @@ public class Menu {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-            
-//        System.out.println("예약을 원하시는 날짜 번호를 입력해주세요.");
-//        System.out.print("> ");
-//        userDateChoice = sc.nextInt();
-//        
-//        //## 범위를 벗어나는 번호를 입력한 경우
-//        //## 이미 예약된 날짜의 번호를 선택한 경우
-//        //## 예외구문 전체에 씌우기
-        
 
     }
 
     public void member_Book_Time() {
       //날짜 + 시간 2차원 배열 (예약정보 저장해둬야 한다)
-        
-        
-        for (int i = 0; i < member.date_Time_List.length; i++) {
-            member.date_Time_List[i][0] = "<1타임> [9:00-11:00]";
-            member.date_Time_List[i][1] = "<2타임> [13:00-15:00]";
-            member.date_Time_List[i][2] = "<3타임> [15:00-17:00]";
-            member.date_Time_List[i][3] = "<4타임> [17:00-19:00]";
-        }
+        System.out.println("<1타임> [9:00-11:00]");
+        System.out.println("<2타임> [13:00-15:00]");
+        System.out.println("<3타임> [15:00-17:00]");
+        System.out.println("<4타임> [17:00-19:00]");
         
 //        userDateChoice--;
-        member.userDateChoice--;
-        for(String str : member.date_Time_List[member.userDateChoice]) {
-            System.out.println(str);
-        }
+//        member.userDateChoice--;
+//        for(String str : member.date_Time_List[member.userDateChoice]) {
+//            System.out.println(str);
+//        }
         
 //        System.out.println("예약을 원하시는 타임의 번호를 입력해주세요.");
 //        System.out.println("(ex) 1타임을 원하시는 경우 \" 1 \" 입력");
@@ -174,7 +194,7 @@ public class Menu {
         // 3. 펌
         System.out.println("1. 커트 ------15,000");
         System.out.println("2. 염색 ------30,000");
-        System.out.println("3. 펌 ------50,000");
+        System.out.println("3. 펌 --------50,000");
         
     }
 
