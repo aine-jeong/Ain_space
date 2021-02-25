@@ -10,55 +10,28 @@ import java.util.Scanner;
 public class Book implements Serializable {
     public String id = loginUser();
 
-//    public Book() {
-//    }
+    private String bookID; // 예약한 사람
 
-//    Calendar cal = Calendar.getInstance();
-//    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy년 MM월 dd일 HH시 mm분");
-//    String date = dateFormat.format(cal.getTime());
+    private String book_date; // 예약 날짜
+    private String book_Time; // 예약 시간
+    private String hairStyle; // 시술 종류
 
-    String bookID; // 예약한 사람
+    private int price;
 
-    String book_date; // 예약 날짜
-    String book_Time; // 예약 시간
-    String hairStyle;
-//    List<String> hairStyle = new ArrayList<String>(); // 예약 시술 카트 만들어서 넣기
-    // 그 전까지는 일단 헤어스타일 종류로 만들어 뒀다 (생성자 수정)
-
-    // String id; // 예약한 사람의 id
-    // String booking_time; // 예약한 시간 ? ? ??
-//    public Book(String book_date, String book_Time, String hairStyle) {
-//        this.book_date = book_date;
-//        this.book_Time = book_Time;
-//        this.hairStyle = hairStyle;
-//    }
-//
-//    public Book(String id, String book_date, String book_Time, String hairStyle) {
-//        this.id = id;
-//        this.book_date = book_date;
-//        this.book_Time = book_Time;
-//        this.hairStyle = hairStyle;
-//    }
+    public int getPrice() {
+        return price;
+    }
 
     @Override
     public String toString() {
         return "고객ID: " + id + "/ 예약 날짜: " + book_date + "/ 예약 시간: " + book_Time + "/ 시술종류: " + hairStyle;
     }
 
-    /////////////////////
-    
-    int userDateChoice;
-    int userTimeChoice;
-    int userStyleChoice;
-//    static String[][] date_Time_List = new String[5][4]; // 날짜-시간 배열 (<1타임> [9:00~11:00] -> <1타임> [예약완료]
-//    String bookListPath = "C:\\Temp\\bookListTest.txt";
-//    static Map<Integer, Book> testBookList = new HashMap<Integer, Book>();
-//    static Map<Integer, Book> testBookListRead = new HashMap<Integer, Book>();
+    private int userDateChoice;
+    private int userTimeChoice;
+    private int userStyleChoice;
 
-//    static int count = 1; // 예약 건수
-    
-//    String date = dateFormat.format(cal.getTime());
-    public String loginUser() {
+    private String loginUser() {
         FileReader fr = null;
         BufferedReader br = null;
         try {
@@ -85,7 +58,7 @@ public class Book implements Serializable {
         Scanner sc = new Scanner(System.in);
         Calendar cal = Calendar.getInstance();
         SimpleDateFormat dateFormat = new SimpleDateFormat("[yyyy년 MM월 dd일]");
-        
+
         Menu menu = new Menu();
 
         book.bookID = this.id;
@@ -94,33 +67,32 @@ public class Book implements Serializable {
         System.out.println("예약을 원하시는 날짜 번호를 입력해주세요.");
         System.out.print("> ");
         userDateChoice = sc.nextInt();
-        while(userDateChoice > 5 || userDateChoice < 1) {
-          System.out.println("번호를 잘못 입력하셨습니다.");
-          System.out.println("다시 입력해주세요.");
-          System.out.print("> ");
-          userDateChoice = sc.nextInt();
+        while (userDateChoice > 5 || userDateChoice < 1) {
+            System.out.println("번호를 잘못 입력하셨습니다.");
+            System.out.println("다시 입력해주세요.");
+            System.out.print("> ");
+            userDateChoice = sc.nextInt();
         }
 
         cal.add(Calendar.DATE, userDateChoice);
         book.book_date = dateFormat.format(cal.getTime());
-
         // V ## 범위를 벗어나는 번호를 입력한 경우
-        //   ## 이미 예약된 날짜의 번호를 선택한 경우
-        //   ## 예외구문 전체에 씌우기
+        // ## 이미 예약된 날짜의 번호를 선택한 경우
+        // ## 예외구문 전체에 씌우기
 
         menu.member_Book_Time();
         System.out.println("예약을 원하시는 타임의 번호를 입력해주세요.");
         System.out.println("(ex) 1타임을 원하시는 경우 \" 1 \" 입력");
         System.out.print("> ");
         userTimeChoice = sc.nextInt();
-        
-        while(userTimeChoice > 4 || userTimeChoice < 1) {
+
+        while (userTimeChoice > 4 || userTimeChoice < 1) {
             System.out.println("번호를 잘못 입력하셨습니다.");
             System.out.println("다시 입력해주세요.");
             System.out.print("> ");
             userTimeChoice = sc.nextInt();
-          }
-        
+        }
+
         switch (userTimeChoice) {
         case 1:
             book.book_Time = "[9:00-11:00]";
@@ -143,32 +115,43 @@ public class Book implements Serializable {
         System.out.println("예약을 원하시는 시술 번호를 입력해주세요.");
         System.out.print("> ");
         userStyleChoice = sc.nextInt();
-        
-        while(userStyleChoice > 3 || userStyleChoice < 1) {
+
+        while (userStyleChoice > 3 || userStyleChoice < 1) {
             System.out.println("번호를 잘못 입력하셨습니다.");
             System.out.println("다시 입력해주세요.");
             System.out.print("> ");
             userStyleChoice = sc.nextInt();
-          }
-        
+        }
         // V ## 범위를 벗어나는 번호를 입력한 경우
         // ## 예매 할건지 다시 묻기
         // ## 예매 취소시 다시 날짜선택 or 예약관리 화면으로 이동시키기
         switch (userStyleChoice) {
         case 1:
             book.hairStyle = "커트";
+            price = 15000;
             break;
         case 2:
             book.hairStyle = "염색";
+            price = 30000;
             break;
         case 3:
             book.hairStyle = "펌";
+            price = 50000;
             break;
         }
+
+        System.out.println(">> 예약이 완료되었습니다 <<\n");
+        System.out.println("****<예약 내역 확인>****");
+        System.out.println("예약 날짜: " + this.book_date);
+        System.out.println("예약 시간: " + this.book_Time);
+        System.out.println("시술 종류: " + this.hairStyle);
+        System.out.println("결제 금액: " + this.price);
+        System.out.println("**********************\n");
         
-
+        Manager.money += this.price;
+       
         return book;
-
     }
+
 
 }

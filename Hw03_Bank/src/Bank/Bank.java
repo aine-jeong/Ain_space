@@ -14,17 +14,6 @@ public class Bank {
         this.accounts = new ArrayList<Account>();
     }
     
-    
-//    public Bank(Account[] accounts, int totalAccount) {
-//        super();
-//        this.accounts = accounts;
-//        this.totalAccount = totalAccount;
-//    }
-
-
-//    public void setAccounts(Account[] accounts) {
-//        this.accounts = accounts;
-//    }
 
 
     public void setTotalAccount(int totalAccount) {
@@ -56,26 +45,6 @@ public class Bank {
         return accounts.get(accountNum);
     }
     
-//    public Account[] findAccounts(String name) {
-//        int accountNumber = 0; // 사용자 한명이 가진 계좌의 개수
-//        Account[] allaccount; // 사용자 한명이 가진 계좌의 목록
-//        for(int i = 0; i < totalAccount; i++) {
-//            if(accounts.get(i).getName().equals(name)) {
-//                accountNumber++;
-//            }
-//        }
-//        
-//        allaccount = new Account[accountNumber];
-//        accountNumber = 0;
-//        
-//        for(int i = 0; i < totalAccount; i++) {
-//            if(accounts.get(i).getName().equals(name)) {
-//               allaccount[accountNumber] = accounts.get(i);
-//               accountNumber++;
-//            }
-//        }
-//        return allaccount;
-//    }
     
     public List<Account> findAccounts(String name) {
         List<Account> allaccount = new ArrayList<Account>(); // 사용자 한명이 가진 계좌의 목록
