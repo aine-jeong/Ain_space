@@ -1,8 +1,0 @@
-
-public class Ex09_File_Format {
-    public static void main(String[] args) {
-        File dir = new File("C:\\Temp");
-        
-    }
-
-}
